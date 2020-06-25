@@ -1,0 +1,35 @@
+<super-tabs #mainTab activeTabIndex="0" class="main-tab"
+[config]="{ debug: false, sideMenu: 'left', allowElementScroll: true ,avoidElements:true}">
+<super-tabs-toolbar scrollable slot="top">
+   <super-tab-button >
+      <ion-label>Tab1</ion-label>
+   </super-tab-button>
+   <super-tab-button>
+      <ion-label>Tab2</ion-label>
+   </super-tab-button>
+</super-tabs-toolbar>
+<super-tabs-container autoScrollTop>
+   <super-tab>
+      <ion-content class="main">
+         <div class="pagepadding main-content-wrapper">
+            <div style="margin: 10px;width:300px;height: 500px;">
+               <super-tabs class="main-tab" #cardSuperTabs activeTabIndex="0" 
+               [config]="{ debug: false,  allowElementScroll: true}" avoid-super-tabs="true">
+               <super-tabs-toolbar scrollable slot="top">
+                  <super-tab-button *ngFor="let item of tabs">
+                     <ion-label>All</ion-label>
+                  </super-tab-button>
+               </super-tabs-toolbar>
+               <super-tabs-container class="backgroundColorToolbar"  >
+                  <super-tab style="height: auto;" *ngFor="let item of tabs" >
+                     <div style="margin:16px" >
+                       Tab-inner
+                     </div>
+                  </super-tab>
+               </super-tabs-container>
+               </super-tabs>
+            </div>
+         </div>
+      </ion-content>
+   </super-tab>
+</super-tabs-container>
